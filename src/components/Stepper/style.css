@@ -1,0 +1,9 @@
+.buttons-container {
+    display: flex;
+    justify-content: space-between;
+    padding: .5rem;
+}
+
+.control-container {
+    padding: .5rem;
+}

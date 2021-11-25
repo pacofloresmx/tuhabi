@@ -1,0 +1,75 @@
+.main-container {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.left-container {
+    padding: 10% 5%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.right-container, .modal-content{
+    padding: 0;
+    background-color: #0062cc !important;
+}
+
+.modal-dialog {
+    background-color: #0062cc;
+}
+
+.main-container .stepper-container{
+    padding: 0 5%;
+}
+
+.stepper-container {
+    background-color: #ffffff;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.full-width-button{
+    width: 100%;
+    display: none !important;
+}
+
+.buttons-container {
+    padding: .5rem;
+}
+
+@media (max-width: 767px) {
+    .right-container {
+        display: none;
+    }
+
+    .full-width-button {
+        display: block !important;
+    }
+
+    .left-container{
+        background-color: #ffffff;
+    }
+}
+
+@media (min-width: 768px) {
+    .main-container {
+        max-width: 100% !important;
+    }
+
+    .left-container{
+        background-color: #ffffff;
+    }
+}
+
+@media (min-width: 1024px) {
+    .main-container {
+        max-width: 90% !important;
+    }
+
+    .left-container{
+        background-color: transparent;
+    }
+}

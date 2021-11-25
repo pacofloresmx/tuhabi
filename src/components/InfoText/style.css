@@ -1,0 +1,19 @@
+.info-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-basis: unset;
+    padding: unset;
+}
+
+.label {
+    font-size: 1rem;
+    font-weight: 300;
+    color: #fff;
+}
+
+.value {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #fff;
+}
