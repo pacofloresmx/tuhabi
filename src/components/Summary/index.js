@@ -1,34 +1,54 @@
-import React from 'react';
-import { ImageHero } from '../ImageHero';
+import React, { useContext } from 'react';
+import { PropertyContext } from '../../contexts/PropertyContext';
 import { InfoText } from '../InfoText';
 import './style.css'
 
-export const Summary = ({labels, data}) => {
+export const Summary = () => {
+    const {data, labels} = useContext(PropertyContext);
+
+    const renderValue = (value) => {
+        if (typeof value == "boolean") {
+            return value ? 'Sí' : 'No';
+        } else {
+            return value ? value : '-';
+        }
+    }
 
     return (
-        <div className=" summary">
-            <div className="image-container">
-                <ImageHero></ImageHero>
-            </div>
+        <div className="summary">
             {
                 Object.keys(data).map((key) => (
-                    (key !== 'photo' && key !== 'services') && <InfoText
-                        key={key}
-                        label={labels[key]}
-                        value={(data[key]) ? (data[key]) : '-'}
-                    />
-                ))
-            }
-            <InfoText
-                value="Servicios"
-            />
-            {
-                Object.keys(data['services']).map((service) => (
-                    <InfoText
-                        key={service}
-                        label={labels[service]}
-                        value={(data['services'][service] === true) ? 'Sí' : 'No'}
-                    />
+                    (typeof data[key] === 'object') ? (
+                        <React.Fragment key={key}>
+                            <InfoText value={labels[key]}/>
+                            {
+                                Object.keys(data[key]).map((subkey) => (
+                                    <InfoText
+                                        key={subkey}
+                                        label={labels[subkey]}
+                                        value={renderValue(data[key][subkey])}
+                                    />
+                                ))
+                            }
+                        </React.Fragment>
+                    ) : (
+                        (key !== 'photo') ? 
+                        <InfoText
+                            key={key}
+                            label={labels[key]}
+                            value={renderValue(data[key])}
+                        /> : 
+                        <React.Fragment key={key}>
+                            {
+                                (data[key]) &&
+                                <div
+                                    className="image-container"
+                                >
+                                    <img src={data[key]} alt="" />
+                                </div>
+                            }
+                        </React.Fragment>
+                    )
                 ))
             }
         </div>

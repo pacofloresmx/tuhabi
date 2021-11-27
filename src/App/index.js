@@ -1,9 +1,12 @@
 import React from 'react';
+import { PropertyProvider } from '../contexts/PropertyContext';
 import { AppUI } from './AppUI';
 
 const App = () => {
     return (
-        <AppUI />
+        <PropertyProvider>
+            <AppUI />
+        </PropertyProvider>
     );
 }
 

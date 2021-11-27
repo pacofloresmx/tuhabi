@@ -1,23 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { FormCheckbox } from "shards-react";
 
 export const OptionInput = (props) => {
     const {
         label,
         name,
-        onChange
+        onChange,
+        defaultValue
     } = props;
 
     let opts = {};
     let optionsConfig = Object.keys(props.optionsConfig).map((key) => {
         let {
-            name, 
-            value,
+            name,
             label
         } = props.optionsConfig[key];
+        let value = props.optionsConfig[key]['val'](props.data);
         opts[name] = value;
         return {name, label, value};
     });
+
+    console.log(optionsConfig);
 
     const [options, setOptions] = useState(opts);
 
@@ -25,17 +28,19 @@ export const OptionInput = (props) => {
         const newState = {};
         newState[opt] = !options[opt];
         setOptions({ ...options, ...newState });
-        onChange && onChange(name, { ...options, ...newState })
+        if (onChange) {
+            name ? onChange(name, { ...options, ...newState }) : onChange(opt, newState[opt])
+        }
     }
 
     return (
         <div className="">
-            <p>{label}</p>
+            {label && <label className="form-label">{label}</label>}
             {
                 optionsConfig.map((option, index) => (
                     <FormCheckbox
                         key={index}
-                        checked={options[option.name]}
+                        checked={defaultValue ? defaultValue[option.name] : options[option.name]}
                         onChange={() => {handleChange(option.name);}}
                     >
                     {option.label}

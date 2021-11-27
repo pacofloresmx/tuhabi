@@ -1,0 +1,24 @@
+.file-input-container {
+    display: flex;
+    align-items: center;
+    height: 2.28571rem;
+}
+
+.file-input-container > label {
+    margin-bottom: 0;
+}
+
+.file-input-button {
+    white-space: nowrap;
+}
+
+.file-input-text{
+    margin-left: 8px;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+}
+
+.file-input{
+    display: none;
+}

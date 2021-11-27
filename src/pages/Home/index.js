@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useHistory } from "react-router";
 import { Button } from "shards-react";
-import steps from "../../contexts/StepperContext/steps";
+import { PropertyContext } from "../../contexts/PropertyContext";
 
 export const Home = () => {
+    const {steps} = useContext(PropertyContext);
     const history = useHistory();
 
     const handleClick = (e) => {

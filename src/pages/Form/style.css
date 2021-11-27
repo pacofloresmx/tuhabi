@@ -24,11 +24,16 @@
 }
 
 .stepper-container {
-    background-color: #ffffff;
+    background-color: transparent;
     display: flex;
     align-content: center;
     justify-content: center;
     flex-direction: column;
+}
+
+.stepper-container > form {
+    background: #ffffff;
+    padding: 1rem;
 }
 
 .full-width-button{
@@ -37,7 +42,7 @@
 }
 
 .buttons-container {
-    padding: .5rem;
+    padding-bottom: 1rem;
 }
 
 @media (max-width: 767px) {
@@ -49,8 +54,12 @@
         display: block !important;
     }
 
-    .left-container{
+    .stepper-container {
         background-color: #ffffff;
+    }
+
+    .stepper-container > form {
+        padding: 0;
     }
 }
 
@@ -58,18 +67,10 @@
     .main-container {
         max-width: 100% !important;
     }
-
-    .left-container{
-        background-color: #ffffff;
-    }
 }
 
 @media (min-width: 1024px) {
     .main-container {
         max-width: 90% !important;
-    }
-
-    .left-container{
-        background-color: transparent;
     }
 }

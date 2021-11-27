@@ -6,4 +6,5 @@
 
 .control-container {
     padding: .5rem;
+    min-height: 10rem;
 }

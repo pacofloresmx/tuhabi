@@ -6,7 +6,8 @@ export const TextInput = (props) => {
         label,
         name,
         className,
-        placeholder
+        placeholder,
+        defaultValue
     } = props;
 
     const handleOnChange = (e) => {
@@ -17,7 +18,7 @@ export const TextInput = (props) => {
     return (
         <div className="mb-3">
             <label htmlFor={name} className="form-label">{label}</label>
-            <FormInput type="text" className={(className) ? `form-control ${className}` : 'form-control' } id={name} name={name} placeholder={placeholder} onChange={handleOnChange}/>
+            <FormInput value={defaultValue} type="text" className={(className) ? `form-control ${className}` : 'form-control' } id={name} name={name} placeholder={placeholder} onChange={handleOnChange}/>
         </div>
     );
 };

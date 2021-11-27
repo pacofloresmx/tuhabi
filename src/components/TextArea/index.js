@@ -6,7 +6,8 @@ export const TextArea = (props) => {
         label,
         name,
         className,
-        placeholder
+        placeholder,
+        defaultValue
     } = props;
 
     const handleOnChange = (e) => {
@@ -17,7 +18,7 @@ export const TextArea = (props) => {
     return (
         <div className="mb-3">
             <label htmlFor={name} className="form-label">{label}</label>
-            <FormTextarea style={{resize: 'none'}} type="text" className={(className) ? `form-control ${className}` : 'form-control' } id={name} name={name} placeholder={placeholder} onChange={handleOnChange}/>
+            <FormTextarea value={defaultValue} style={{resize: 'none'}} type="text" className={(className) ? `form-control ${className}` : 'form-control' } id={name} name={name} placeholder={placeholder} onChange={handleOnChange}/>
         </div>
     );
 
